@@ -24,7 +24,7 @@ var commentSchema = mongo.Schema({
 var Card = mongo.model('Card', cardSchema);
 var Comment = mongo.model('Comment', commentSchema);
 
-mongo.connect(process.env.MONGODB_URL || 'mongodb://localhost:27017/mongo-backend', {useNewUrlParser:true,  useUnifiedTopology: true });
+mongo.connect(process.env.MONGODB_URL || 'mongodb://heroku_tzfr3cpv:nusukhl67orl3jl9t571pm3e4r@ds261648.mlab.com:61648/heroku_tzfr3cpv', {useNewUrlParser:true,  useUnifiedTopology: true });
 mongo.set('useFindAndModify', false);
 
 mongo.connection.on('error', (e)=>{console.error(e)});
