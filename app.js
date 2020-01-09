@@ -16,6 +16,8 @@ var cardSchema = mongo.Schema({
     likes: {type: Number, default : 0},
     comments: {type: mongo.Schema.Types.ObjectId, ref: "Comment"}
 });
+cardSchema.index({createdAt: 1}, {expireAfterSeconds: 60000});
+
 var commentSchema = mongo.Schema({
     id: Number,
     category: String,
