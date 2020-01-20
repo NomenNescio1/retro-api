@@ -12,7 +12,8 @@
     "express": "^4.17.1",
     "mongodb": "^3.3.3",
     "mongoose": "^5.7.1",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "repeat": "^1.2.0"
   },
   "author": "",
   "license": "ISC"

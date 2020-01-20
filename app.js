@@ -2,6 +2,7 @@ const express = require('express');
 const mongo = require('mongoose');
 const cors = require('cors');
 var bodyParser = require('body-parser');
+const repeat = require("repeat");
 
 const app = express();
 app.use(bodyParser.json());
@@ -14,7 +15,7 @@ var cardSchema = mongo.Schema({
     category: String,
     color: String,
     likes: {type: Number, default : 0},
-    expire_at: {type: Date, default: Date.now, expires: 60},
+    // expire_at: {type: Date, default: Date.now, expires: 60},
     comments: {type: mongo.Schema.Types.ObjectId, ref: "Comment"}
 });
 
@@ -110,9 +111,13 @@ app.get('/getcomments/:id', async(req, res)=>{
     // prints "The author is Ian Fleming"
   });
 })
+//repeat().do(()=>{Card.deleteMany({}).exec()}).every(120000);
+
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3001;
 }
+
 app.listen(port);
 //app.listen(3001, () => console.log('Listening on port 3001!'));
+
