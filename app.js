@@ -15,7 +15,7 @@ var cardSchema = mongo.Schema({
     category: String,
     color: String,
     likes: {type: Number, default : 0},
-    expire_at: {type: Date, default: Date.now, expires: 7200},
+    // expire_at: {type: Date, default: Date.now, expires: 7200},
     comments: {type: mongo.Schema.Types.ObjectId, ref: "Comment"}
 });
 
