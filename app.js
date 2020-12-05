@@ -26,7 +26,7 @@ const commentSchema = mongo.Schema({
 const Card = mongo.model('Card', cardSchema);
 const Comment = mongo.model('Comment', commentSchema);
 
-mongo.connect(process.env.MONGODB_URL || 'mongodb+srv://testUser:0SmYUo7dhJ2k@cluster0.owxra.mongodb.net/retroDB?retryWrites=true&w=majority', {useNewUrlParser:true,  useUnifiedTopology: true });
+mongo.connect(process.env.MONGODB_URL || 'nicetry', {useNewUrlParser:true,  useUnifiedTopology: true });
 mongo.set('useFindAndModify', false);
 
 mongo.connection.on('error', (e)=>{console.error(e)});
