@@ -1,15 +1,14 @@
 const express = require('express');
 const mongo = require('mongoose');
 const cors = require('cors');
-var bodyParser = require('body-parser');
-const repeat = require("repeat");
+const bodyParser = require('body-parser');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
-var cardSchema = mongo.Schema({
+const cardSchema = mongo.Schema({
     id: Number,
     content: String,
     category: String,
@@ -19,15 +18,15 @@ var cardSchema = mongo.Schema({
     comments: {type: mongo.Schema.Types.ObjectId, ref: "Comment"}
 });
 
-var commentSchema = mongo.Schema({
+const commentSchema = mongo.Schema({
     id: Number,
     category: String,
     content: String
 })
-var Card = mongo.model('Card', cardSchema);
-var Comment = mongo.model('Comment', commentSchema);
+const Card = mongo.model('Card', cardSchema);
+const Comment = mongo.model('Comment', commentSchema);
 
-mongo.connect(process.env.MONGODB_URL || 'mongodb://heroku_tzfr3cpv:nusukhl67orl3jl9t571pm3e4r@ds261648.mlab.com:61648/heroku_tzfr3cpv', {useNewUrlParser:true,  useUnifiedTopology: true });
+mongo.connect(process.env.MONGODB_URL || 'mongodb+srv://testUser:0SmYUo7dhJ2k@cluster0.owxra.mongodb.net/retroDB?retryWrites=true&w=majority', {useNewUrlParser:true,  useUnifiedTopology: true });
 mongo.set('useFindAndModify', false);
 
 mongo.connection.on('error', (e)=>{console.error(e)});
